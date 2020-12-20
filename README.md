@@ -1,4 +1,4 @@
-# aurelia-gridstack-dashboard
+# Aurelia Gridstack Dashboard
 WIP, dynamic dashboard - gridstack.js, aurelia, webpack, typescript.
 
 
