@@ -1,0 +1,26 @@
+<template>
+  <require from="gridstack/gridstack.min.css"></require>
+  <require from="./styles/styles.scss"></require>
+
+  <page-header>Aurelia Dashboard</page-header>
+  
+  <div class="aurelia-dashboard"></div>
+    <div class="grid-stack" gs-width="12" gs-animate="yes">
+      <div class="grid-stack-item"
+           repeat.for="widget of widgetDefinitions"
+           gs-id="${widget.id}"
+           gs-no-move="${widget.noMove ? 'true' : 'false'}"
+           gs-locked="${widget.locked ? 'true' : 'false'}"
+           gs-w="${widget.width}"
+           ar-module="${widget.module}"
+           gs-h="${widget.height}"
+           gs-x="${widget.x}"
+           gs-y="${widget.y}">
+           
+        <compose view-model="widgets/${widget.module}"     
+                 containerless
+                 model.bind="{ cellHeight: cellHeight, widgetDetail: widget }"></compose> 
+      </div>
+    </div>
+  </div>
+</template>
