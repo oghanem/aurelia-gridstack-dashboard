@@ -1,4 +1,8 @@
 import { Aurelia, PLATFORM } from 'aurelia-framework';
+import { DashboardView } from './dashboard-view';
+import {
+  GridStackAttributes
+} from './gridstack-attributes';
 
 export async function configure(aurelia: Aurelia): Promise<void> {
   aurelia.use
@@ -6,7 +10,9 @@ export async function configure(aurelia: Aurelia): Promise<void> {
     .developmentLogging()
     .globalResources([
       PLATFORM.moduleName('widgets/articles'),
-      PLATFORM.moduleName('widgets/textblock')
+      PLATFORM.moduleName('widgets/textblock'),
+      ...GridStackAttributes,
+      DashboardView
     ])
     .plugin(PLATFORM.moduleName('aurelia-animator-css'));
     
