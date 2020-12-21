@@ -16,6 +16,7 @@
   ],
   "homepage": "https://github.com/oghanem/aurelia-gridstack-dashboard#readme",
   "scripts": {
+    "start": "npm run start:dev",
     "build-release": "rimraf .\\dist && npm run html && npm run css && npm run scss && npm run less && tsc",
     "start:dev": "concurrently --kill-others \"npm run start:node-sass\" \"npm run start:webpack-dev-server\"",
     "start:webpack-dev-server": "webpack-dev-server",
