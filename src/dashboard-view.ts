@@ -1,18 +1,15 @@
-import { observable } from "aurelia-framework";
 import { GridStack, GridStackNode, GridStackWidget } from "gridstack";
 import 'gridstack/dist/h5/gridstack-dd-native';
 import { WidgetDetails } from "./widgets/widget-details";
 
-export class WorkspaceDashboard {
-  @observable() public gridStack: GridStack;
-  @observable() public cellHeight = 115;
+export class DashboardView {
+  public gridStack: GridStack;
+  public cellHeight = 115;
 
   public widgetDefinitions: WidgetDetails[];
 
-  public async activate() {
+  public async bind() {
     this.widgetDefinitions = this.fetchWorkspaceWidgets();
-
-    return true;
   }
 
   public attached() {
@@ -26,7 +23,7 @@ export class WorkspaceDashboard {
       resizable: {
         handles: 'e, se, s, sw, w'
       },
-      float:false
+      float: true
     });
   
     this.gridStack.on("change", async (event, elements: (GridStackNode & GridStackWidget)[]) => {
@@ -38,6 +35,8 @@ export class WorkspaceDashboard {
           hit.module = el.module;
         }
       });
+
+      console.log(JSON.stringify(this.widgetDefinitions));
     });
   }
 
