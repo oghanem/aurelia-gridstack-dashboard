@@ -83,3 +83,13 @@ export class GsLockedCustomAttribute {
     console.log(this.value);
   }
 }
+
+export const GridStackAttributes = [
+  GsHCustomAttribute,
+  GsIdCustomAttribute,
+  GsLockedCustomAttribute,
+  GsNoMoveCustomAttribute,
+  GsWCustomAttribute,
+  GsXCustomAttribute,
+  GsYCustomAttribute
+];

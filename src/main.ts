@@ -1,5 +1,8 @@
 import { Aurelia, PLATFORM } from 'aurelia-framework';
-import { GsHCustomAttribute, GsIdCustomAttribute, GsLockedCustomAttribute, GsNoMoveCustomAttribute, GsWCustomAttribute, GsXCustomAttribute, GsYCustomAttribute } from './gridstack-attributes';
+import { DashboardView } from './dashboard-view';
+import {
+  GridStackAttributes
+} from './gridstack-attributes';
 
 export async function configure(aurelia: Aurelia): Promise<void> {
   aurelia.use
@@ -8,13 +11,8 @@ export async function configure(aurelia: Aurelia): Promise<void> {
     .globalResources([
       PLATFORM.moduleName('widgets/articles'),
       PLATFORM.moduleName('widgets/textblock'),
-      GsXCustomAttribute,
-      GsYCustomAttribute,
-      GsWCustomAttribute,
-      GsHCustomAttribute,
-      GsIdCustomAttribute,
-      GsNoMoveCustomAttribute,
-      GsLockedCustomAttribute
+      ...GridStackAttributes,
+      DashboardView
     ])
     .plugin(PLATFORM.moduleName('aurelia-animator-css'));
     
