@@ -72,6 +72,18 @@ export class GsNoMoveCustomAttribute {
   }
 }
 
+export class GsNoResizeCustomAttribute {
+  static inject = [Element];
+  value: any;
+
+  constructor(public element: Element) {}
+
+  bind() {
+    this.element.setAttribute("gs-no-resize", this.value);
+    console.log(this.value);
+  }
+}
+
 export class GsLockedCustomAttribute {
   static inject = [Element];
   value: any;
@@ -85,11 +97,13 @@ export class GsLockedCustomAttribute {
 }
 
 export const GridStackAttributes = [
-  GsHCustomAttribute,
   GsIdCustomAttribute,
   GsLockedCustomAttribute,
   GsNoMoveCustomAttribute,
-  GsWCustomAttribute,
+  GsNoResizeCustomAttribute,
   GsXCustomAttribute,
-  GsYCustomAttribute
+  GsYCustomAttribute,
+  GsHCustomAttribute,
+  GsWCustomAttribute
+
 ];
