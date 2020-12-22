@@ -5,7 +5,7 @@ import { WidgetDetails } from "./widgets/widget-details";
 export class DashboardView {
   public gridStack: GridStack;
   public cellHeight = 115;
-
+  public float: boolean = false;
   public widgetDefinitions: WidgetDetails[];
 
   public async bind() {
@@ -23,7 +23,7 @@ export class DashboardView {
       resizable: {
         handles: 'e, se, s, sw, w'
       },
-      float: true
+      float: this.float
     });
   
     this.gridStack.on("change", async (event, elements: (GridStackNode & GridStackWidget)[]) => {
@@ -40,21 +40,26 @@ export class DashboardView {
     });
   }
 
+  toggleFloat(){
+    this.float = !this.gridStack.getFloat();
+    this.gridStack.float(this.float);
+  }
+
   fetchWorkspaceWidgets(){
-      return [{
-          "x": 2,
-          "y": 0,
-          "width": 2,
-          "height": 4,
-          "id": "12287",
-          "module": "articles"
-        },{
-          "x": 5,
-          "y": 8,
-          "width": 2,
-          "height": 6,
-          "id": "187",
-          "module": "textblock"
-        }];
+    return [{
+      "x": 2,
+      "y": 0,
+      "width": 2,
+      "height": 4,
+      "id": "12287",
+      "module": "articles"
+    },{
+      "x": 5,
+      "y": 8,
+      "width": 2,
+      "height": 6,
+      "id": "187",
+      "module": "textblock"
+    }];
   }
 }
