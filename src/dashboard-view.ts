@@ -46,20 +46,18 @@ export class DashboardView {
   }
 
   fetchWorkspaceWidgets(){
-    return [{
-      "x": 2,
-      "y": 0,
-      "width": 2,
-      "height": 4,
-      "id": "12287",
-      "module": "articles"
-    },{
-      "x": 5,
-      "y": 8,
-      "width": 2,
-      "height": 6,
-      "id": "187",
-      "module": "textblock"
-    }];
+    return  [
+        { 'x': 10,'y': 4, 'width': 2, 'height': 2, 'id': 1, 'module': 'textblock'},
+        { 'x': 8, 'y': 4, 'width': 2, 'height': 2, 'id': 2, 'module': 'textblock'},
+        { 'x': 4, 'y': 4, 'width': 4, 'height': 2, 'id': 3, 'module': 'textblock'},
+        { 'x': 0, 'y': 4, 'width': 2, 'height': 2, 'id': 4, 'module': 'textblock'},
+        { 'x': 8, 'y': 2, 'width': 4, 'height': 2, 'id': 5, 'module': 'textblock'},
+        { 'x': 2, 'y': 2, 'width': 2, 'height': 4, 'id': 6, 'module': 'textblock'},
+        { 'x': 0, 'y': 2, 'width': 2, 'height': 2, 'id': 7, 'module': 'textblock'},
+        { 'x': 10,'y': 0, 'width': 2, 'height': 2, 'id': 8, 'module': 'textblock'},
+        { 'x': 8, 'y': 0, 'width': 2, 'height': 2, 'id': 9, 'module': 'textblock'},
+        { 'x': 4, 'y': 0, 'width': 4, 'height': 4, 'id': 10, 'module': 'todo'},
+        { 'x': 0, 'y': 0, 'width': 4, 'height': 2, 'id': 11, 'module': 'textblock'},
+      ];
   }
 }

@@ -9,7 +9,7 @@ export async function configure(aurelia: Aurelia): Promise<void> {
     .standardConfiguration()
     .developmentLogging()
     .globalResources([
-      PLATFORM.moduleName('widgets/articles'),
+      PLATFORM.moduleName('widgets/todo'),
       PLATFORM.moduleName('widgets/textblock'),
       ...GridStackAttributes,
       DashboardView

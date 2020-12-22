@@ -1,0 +1,31 @@
+
+export class Todo {
+  heading: string;
+  todos: any[];
+  todoDescription: string;
+
+  activate(model) {
+    console.log(model);
+    this.heading = 'Todos';
+    this.todos = [];
+    this.todoDescription = '';
+  }
+
+  addTodo() {
+    if (this.todoDescription) {
+      this.todos.push({
+        description: this.todoDescription,
+        done: false
+      });
+
+      this.todoDescription = '';
+    }
+  }
+
+  removeTodo(todo) {
+    let index = this.todos.indexOf(todo);
+    if (index !== -1) {
+      this.todos.splice(index, 1);
+    }
+  }
+}

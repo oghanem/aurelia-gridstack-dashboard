@@ -1,11 +1,12 @@
 
 export class Textblock {
-  text: string;
+  heading: any;
+  content: any;
 
   activate(model) {
-    console.log('Textblock: ');
     console.log(model);
 
-    this.text = "Textblock Widget";
+    this.heading = 'Textblock Widget';
+    this.content = model.content;
   }
 }
