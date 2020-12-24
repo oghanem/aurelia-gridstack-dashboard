@@ -1,4 +1,5 @@
-import { GridStack, GridStackNode, GridStackWidget } from "gridstack";
+
+import { GridStack, GridStackElement, GridStackNode, GridStackWidget } from "gridstack";
 import 'gridstack/dist/h5/gridstack-dd-native';
 import { WidgetDetails } from "./widgets/widget-details";
 
@@ -13,7 +14,7 @@ export class DashboardView {
   }
 
   public attached() {
- 
+  
     this.gridStack = GridStack.init({
       cellHeight: this.cellHeight,
       margin: 10,
@@ -44,6 +45,8 @@ export class DashboardView {
     this.float = !this.gridStack.getFloat();
     this.gridStack.float(this.float);
   }
+
+  public removeWidget = (el: GridStackElement) => this.gridStack.removeWidget(el);
 
   fetchWorkspaceWidgets(){
     return  [

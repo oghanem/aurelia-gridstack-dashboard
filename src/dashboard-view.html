@@ -7,6 +7,7 @@
   <div class="col-sm-12 col-md-10">
     <div class="grid-stack" gs-animate="yes">
       <div class="grid-stack-item"
+           ref="domEl"
            repeat.for="widget of widgetDefinitions"
            gs-id="${widget.id}"
            gs-x="${widget.x}"
@@ -20,7 +21,7 @@
            
         <compose view-model="widgets/${widget.module}"     
                  containerless
-                 model.bind="{ cellHeight: cellHeight, widgetDetail: widget }"></compose> 
+                 model.bind="{ cellHeight: cellHeight, widgetDetail: widget, removeWidget: removeWidget }"></compose> 
       </div>
     </div>
   </div>

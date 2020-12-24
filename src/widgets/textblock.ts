@@ -1,12 +1,15 @@
+import { GridStackElement } from "gridstack";
 
 export class Textblock {
   heading: any;
   content: any;
+  removeWidget: any;
+  domEl: GridStackElement;
 
-  activate(model) {
-    console.log(model);
+  activate(model: any) {
 
     this.heading = 'Textblock Widget';
     this.content = model.content;
+    this.removeWidget = model.removeWidget;
   }
 }

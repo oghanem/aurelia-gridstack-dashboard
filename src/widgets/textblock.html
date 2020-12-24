@@ -1,8 +1,9 @@
 <template>
   <div class="grid-stack-item-content">
-    <require from="./widget-header.html"></require>
-  
-    <widget-header heading="${heading}"></widget-header>
+    <div class="widget-header panel-heading">
+      <h3 class="panel-title">${heading}</h3>
+      <button click.delegate="removeWidget(domEl)">X</button>
+    </div>
     <div class="widget-content panel-body">
       <p class="card-text text-center" style="margin-bottom: 0">
         ${content}
@@ -10,4 +11,3 @@
     </div>
   </div>
 </template>
-      
