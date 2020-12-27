@@ -1,5 +1,5 @@
 const path = require("path");
-const { AureliaPlugin, GlobDependenciesPlugin } = require('aurelia-webpack-plugin');
+const { AureliaPlugin } = require('aurelia-webpack-plugin');
 
 module.exports = {
   entry: {

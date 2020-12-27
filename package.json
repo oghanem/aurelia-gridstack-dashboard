@@ -1,7 +1,7 @@
 {
   "name": "aurelia-gridstack-dashboard",
   "description": "Aurelia gridstack dashboard",
-  "version": "0.0.1-ALPHA",
+  "version": "0.1.0",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "repository": {
@@ -18,16 +18,22 @@
   "scripts": {
     "start": "npm run start:dev",
     "build-release": "rimraf .\\dist && npm run html && npm run css && npm run scss && npm run less && tsc",
-    "start:dev": "concurrently --kill-others \"npm run start:node-sass\" \"npm run start:webpack-dev-server\"",
+    "start:dev": "concurrently --kill-others \"npm run start:webpack-dev-server\"",
     "start:webpack-dev-server": "webpack-dev-server",
-    "start:node-sass": "node-sass -o src/styles/aurelia-gridster.scss src/styles/styles.scss -w",
     "start:prod": "webpack -p",
-    "test": "jest",
     "html": "copyfiles --up 1 src/**/*.html dist/",
     "css": "copyfiles --up 1 src/**/*.css dist/",
     "scss": "copyfiles --up 1 src/**/*.scss dist/",
     "less": "copyfiles --up 1 src/**/*.less dist/",
     "lint": "tsc --noEmit && tslint --project ."
+  },
+  "dependencies": {
+    "aurelia-animator-css": "1.0.4",
+    "aurelia-event-aggregator": "^1.0.3",
+    "aurelia-framework": "^1.3.1",
+    "aurelia-pal": "^1.8.2",
+    "aurelia-resize": "^1.1.2",
+    "aurelia-router": "1.7.1"
   },
   "devDependencies": {
     "@popperjs/core": "^2.6.0",
@@ -64,14 +70,6 @@
     "webpack-cli": "^3.3.4",
     "webpack-dev-server": "^3.11.0",
     "worker-loader": "^2.0.0"
-  },
-  "dependencies": {
-    "aurelia-animator-css": "1.0.4",
-    "aurelia-event-aggregator": "^1.0.3",
-    "aurelia-framework": "^1.3.1",
-    "aurelia-pal": "^1.8.2",
-    "aurelia-resize": "^1.1.2",
-    "aurelia-router": "1.7.1"
   },
   "engines": {
     "node": ">=10.0.0"
