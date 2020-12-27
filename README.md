@@ -13,7 +13,7 @@ WIP, dynamic dashboard - gridstack.js, aurelia, webpack, typescript.
 
 3. Run the app by executing the following command:
   ```shell
-  npm run start:dev
+  npm start
   ```
 
 4. Browse to [http://localhost:8080](http://localhost:8080)
