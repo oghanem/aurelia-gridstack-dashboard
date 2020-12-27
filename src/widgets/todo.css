@@ -1,0 +1,9 @@
+.todo-container {
+  list-style:none;
+  margin: 0;
+  padding: 0;
+}
+.todo-item {
+  padding: 5px;
+  margin: 10px;
+}

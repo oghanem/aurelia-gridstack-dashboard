@@ -5,12 +5,14 @@ import { WidgetDetails } from "./widgets/widget-details";
 
 export class DashboardView {
   public gridStack: GridStack;
-  public cellHeight = 115;
-  public float: boolean = false;
   public widgetDefinitions: WidgetDetails[];
+  public cellHeight = 115;
+
+  float: boolean = false;
+  showBorder: boolean = false;
 
   public async bind() {
-    this.widgetDefinitions = this.fetchWorkspaceWidgets();
+    this.widgetDefinitions = this.fetchWidgets();
   }
 
   public attached() {
@@ -18,6 +20,7 @@ export class DashboardView {
     this.gridStack = GridStack.init({
       cellHeight: this.cellHeight,
       margin: 10,
+      animate: true,
       alwaysShowResizeHandle: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         navigator.userAgent
       ),
@@ -48,19 +51,19 @@ export class DashboardView {
 
   public removeWidget = (el: GridStackElement) => this.gridStack.removeWidget(el);
 
-  fetchWorkspaceWidgets(){
+  fetchWidgets(){
     return  [
-        { 'x': 10,'y': 4, 'width': 2, 'height': 2, 'id': 1, 'module': 'textblock'},
-        { 'x': 8, 'y': 4, 'width': 2, 'height': 2, 'id': 2, 'module': 'textblock'},
-        { 'x': 4, 'y': 4, 'width': 4, 'height': 2, 'id': 3, 'module': 'textblock'},
-        { 'x': 0, 'y': 4, 'width': 2, 'height': 2, 'id': 4, 'module': 'textblock'},
-        { 'x': 8, 'y': 2, 'width': 4, 'height': 2, 'id': 5, 'module': 'textblock'},
-        { 'x': 2, 'y': 2, 'width': 2, 'height': 4, 'id': 6, 'module': 'textblock'},
-        { 'x': 0, 'y': 2, 'width': 2, 'height': 2, 'id': 7, 'module': 'textblock'},
-        { 'x': 10,'y': 0, 'width': 2, 'height': 2, 'id': 8, 'module': 'textblock'},
-        { 'x': 8, 'y': 0, 'width': 2, 'height': 2, 'id': 9, 'module': 'textblock'},
-        { 'x': 4, 'y': 0, 'width': 4, 'height': 4, 'id': 10, 'module': 'todo'},
-        { 'x': 0, 'y': 0, 'width': 4, 'height': 2, 'id': 11, 'module': 'textblock'},
+        { 'x': 10,'y': 4, 'width': 2, 'height': 2, 'id': 1, 'module': 'textblock', 'content': 'Widget 1'},
+        { 'x': 8, 'y': 4, 'width': 2, 'height': 2, 'id': 2, 'module': 'textblock', 'content': 'Widget 2'},
+        { 'x': 4, 'y': 4, 'width': 4, 'height': 2, 'id': 3, 'module': 'textblock', 'content': 'Widget 3'},
+        { 'x': 0, 'y': 4, 'width': 2, 'height': 2, 'id': 4, 'module': 'textblock', 'content': 'Widget 4'},
+        { 'x': 8, 'y': 2, 'width': 4, 'height': 2, 'id': 5, 'module': 'textblock', 'content': 'Widget 5'},
+        { 'x': 2, 'y': 2, 'width': 2, 'height': 4, 'id': 6, 'module': 'textblock', 'content': 'Widget 6'},
+        { 'x': 0, 'y': 2, 'width': 2, 'height': 2, 'id': 7, 'module': 'textblock', 'content': 'Widget 7'},
+        { 'x': 10,'y': 0, 'width': 2, 'height': 2, 'id': 8, 'module': 'textblock', 'content': 'Widget 8'},
+        { 'x': 8, 'y': 0, 'width': 2, 'height': 2, 'id': 9, 'module': 'textblock', 'content': 'Widget 9'},
+        { 'x': 4, 'y': 0, 'width': 4, 'height': 4, 'id': 10, 'module': 'todo', 'noResize': true, 'noMove': true, 'locked': true},
+        { 'x': 0, 'y': 0, 'width': 4, 'height': 2, 'id': 11, 'module': 'textblock', 'content': 'Widget 11'},
       ];
   }
 }

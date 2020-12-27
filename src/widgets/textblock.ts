@@ -1,4 +1,4 @@
-import { GridStackElement } from "gridstack";
+import { GridStackElement, GridStackWidget } from "gridstack";
 
 export class Textblock {
   heading: any;
@@ -7,9 +7,8 @@ export class Textblock {
   domEl: GridStackElement;
 
   activate(model: any) {
-
-    this.heading = 'Textblock Widget';
-    this.content = model.content;
+    this.content = model.widgetDetail.content;
     this.removeWidget = model.removeWidget;
+    this.heading = 'Textblock';
   }
 }

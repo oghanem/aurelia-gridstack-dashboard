@@ -1,17 +1,19 @@
 <template>
+  <require from="./todo.css"></require>
+  
   <div class="grid-stack-item-content">
-    <div class="widget-header panel-heading">
-      <h3 class="panel-title">${heading}</h3>
-      <button click.delegate="removeWidget(domEl)">X</button>
+    <div class="grid-stack-item-header">
+      <button click.delegate="maximize(domEl)">${fullscreen}</button>
+      <h3>${heading}</h3>
     </div>
-    
     <form submit.trigger="addTodo()">
       <input type="text" value.bind="todoDescription">
       <button type="submit" disabled.bind="!todoDescription">Add Todo</button>
     </form>
   
-    <ul>
-      <li repeat.for="todo of todos">
+
+    <ul class="todo-container">
+      <li class="todo-item" repeat.for="todo of todos">
         <input type="checkbox" checked.bind="todo.done">
         <span css="text-decoration: ${todo.done ? 'line-through' : 'none'}">
           ${todo.description}

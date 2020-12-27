@@ -1,8 +1,6 @@
 import { Aurelia, PLATFORM } from 'aurelia-framework';
 import { DashboardView } from './dashboard-view';
-import {
-  GridStackAttributes
-} from './gridstack-attributes';
+import { GridStackAttributes } from './gridstack-attributes';
 
 export async function configure(aurelia: Aurelia): Promise<void> {
   aurelia.use

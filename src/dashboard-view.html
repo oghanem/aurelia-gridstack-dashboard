@@ -3,26 +3,26 @@
   <require from="./styles/styles.scss"></require>
 
   <page-header>Aurelia Dashboard</page-header>
-  <input type="button" click.trigger="toggleFloat()" value="Toggle float">Float: ${float}</input>
-  <div class="col-sm-12 col-md-10">
-    <div class="grid-stack" gs-animate="yes">
-      <div class="grid-stack-item"
-           ref="domEl"
-           repeat.for="widget of widgetDefinitions"
-           gs-id="${widget.id}"
-           gs-x="${widget.x}"
-           gs-y="${widget.y}"
-           gs-h="${widget.height}"
-           gs-w="${widget.width}"
-           gs-no-move="${widget.noMove ? 'true' : 'false'}"
-           gs-no-resize="${widget.noMove ? 'true' : 'false'}"
-           gs-locked="${widget.locked ? 'true' : 'false'}"
-           ar-module="${widget.module}">
-           
-        <compose view-model="widgets/${widget.module}"     
-                 containerless
-                 model.bind="{ cellHeight: cellHeight, widgetDetail: widget, removeWidget: removeWidget }"></compose> 
-      </div>
+  <input type="button" click.trigger="toggleFloat()" value="Toggle Float: ${float}"></input>
+  <input type="button" click.trigger="showBorder = !showBorder" value="Toggle Dashboard Border"></input>
+
+  <div class="grid-stack ${showBorder ? 'border' : ''}">
+    <div class="grid-stack-item"
+          ref="domEl"
+          repeat.for="widget of widgetDefinitions"
+          gs-id="${widget.id}"
+          gs-x="${widget.x}"
+          gs-y="${widget.y}"
+          gs-h="${widget.height}"
+          gs-w="${widget.width}"
+          gs-no-move="${widget.noMove}"
+          gs-no-resize="${widget.noResize}"
+          gs-locked="${widget.locked}"
+          ar-module="${widget.module}">
+          
+      <compose view-model="widgets/${widget.module}"     
+                containerless
+                model.bind="{ cellHeight: cellHeight, widgetDetail: widget, removeWidget: removeWidget }"></compose> 
     </div>
   </div>
 </template>
